@@ -96,3 +96,88 @@ const btnTrombon = document.getElementById("trombon").addEventListener('click', 
         location.reload();
     });
 });
+
+const btnAtril = document.getElementById("atril").addEventListener('click', (evento) => {
+    evento.preventDefault();
+    //Crea campos
+    let nombreProducto = "Atril";
+    let precioProducto = 79990;
+    //Crear objeto JSON
+    let datos = { "nombre": nombreProducto, "precio": precioProducto };
+    let datosJson = JSON.stringify(datos);
+    //
+    fetch('http://localhost:3000/tienda', {
+        method: "POST",
+        body: datosJson
+    }).then(resultado => {
+        location.reload();
+    });
+});
+
+const btnMezclador = document.getElementById("mezclador").addEventListener('click', (evento) => {
+    evento.preventDefault();
+    //Crea campos
+    let nombreProducto = "Mezclador";
+    let precioProducto = 339990;
+    //Crear objeto JSON
+    let datos = { "nombre": nombreProducto, "precio": precioProducto };
+    let datosJson = JSON.stringify(datos);
+    //
+    fetch('http://localhost:3000/tienda', {
+        method: "POST",
+        body: datosJson
+    }).then(resultado => {
+        location.reload();
+    });
+});
+
+const btnPedal = document.getElementById("pedal").addEventListener('click', (evento) => {
+    evento.preventDefault();
+    //Crea campos
+    let nombreProducto = "Pedal";
+    let precioProducto = 35990;
+    //Crear objeto JSON
+    let datos = { "nombre": nombreProducto, "precio": precioProducto };
+    let datosJson = JSON.stringify(datos);
+    //
+    fetch('http://localhost:3000/tienda', {
+        method: "POST",
+        body: datosJson
+    }).then(resultado => {
+        location.reload();
+    });
+});
+
+const btnPianoCola = document.getElementById("piano-cola").addEventListener('click', (evento) => {
+    evento.preventDefault();
+    //Crea campos
+    let nombreProducto = "Piano De Cola";
+    let precioProducto = 69999990;
+    //Crear objeto JSON
+    let datos = { "nombre": nombreProducto, "precio": precioProducto };
+    let datosJson = JSON.stringify(datos);
+    //
+    fetch('http://localhost:3000/tienda', {
+        method: "POST",
+        body: datosJson
+    }).then(resultado => {
+        location.reload();
+    });
+});
+
+const btnSinte = document.getElementById("sinte").addEventListener('click', (evento) => {
+    evento.preventDefault();
+    //Crea campos
+    let nombreProducto = "Sintetizador";
+    let precioProducto = 849990;
+    //Crear objeto JSON
+    let datos = { "nombre": nombreProducto, "precio": precioProducto };
+    let datosJson = JSON.stringify(datos);
+    //
+    fetch('http://localhost:3000/tienda', {
+        method: "POST",
+        body: datosJson
+    }).then(resultado => {
+        location.reload();
+    });
+});

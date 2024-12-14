@@ -1,6 +1,6 @@
 const { json } = require("express");
 const Stripe = require('stripe');
-const stripe = new Stripe('sk_test_51OSYQrAN2Gcd6CRsR9osJZWmC2rFk1QMcFnqeg2J3JCphiQQm7ZIfdgGLJ1xXEZH6m7C7IjJXR96kXMMdHZPuCsu00QkyApFGN');
+const stripe = new Stripe('sk_test_51QW3itLRtWndTTX6tDGx517QfOsxy5oLecQfcBzOaOBbk21SrQWEbUiz1G15e67xEvFU0eVJizpRBnYyoJlFinLQ00qIAsxW5f');
 
 module.exports = (app) => {
     //Arreglos vacios para guardar datos
@@ -161,6 +161,14 @@ module.exports = (app) => {
     //STRIPE
     app.post('/create-checkout-session', async (req, res) => {
         let trans = req.body;
+        let total = 0;
+
+        for (let i = 0; i < transacciones.length; i++) {
+            total += transacciones[i]['precio'];
+        }
+
+        console.log("El valor es: " + total)
+
         const s = await stripe.checkout.sessions.create({
             line_items: [{
                 price_data: {
@@ -168,8 +176,8 @@ module.exports = (app) => {
                         name: 'nombre',
                         description: 'descripcion'
                     },
-                    currency: usd,
-                    unit_amount: 1200
+                    currency: 'clp',
+                    unit_amount: total
                 },
                 quantity: 1,
             }],
